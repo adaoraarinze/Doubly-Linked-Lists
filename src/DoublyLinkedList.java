@@ -77,11 +77,6 @@ class DoublyLinkedList<T extends Comparable<T>>
     /**
      * Tests if the doubly linked list is empty
      * @return true if list is empty, and false otherwise
-     *
-     * Worst-case asymptotic running time cost: O(1)
-     *
-     * Justification:
-     *  it checks only 3 values.
      */
     public boolean isEmpty()
     {
@@ -94,15 +89,6 @@ class DoublyLinkedList<T extends Comparable<T>>
      * I referenced the Java LinkedList original source code when I wrote this.
      * @param pos : the position
      * @return the DLLNode at pos, if pos is within the bounds of the list, and null otherwise.
-     *
-     * Worst-case asymptotic running time cost: O(N)
-     *
-     * Justification:
-     *  The code checks the middle of the code to see whether the required nod is in the first or second half of the list.
-     *  It then iterates until it finds said node. The while loops run in O(N) time because N/2 is simplified to O(N)
-     *  in asymptotic notation, and only one will be used each time the method is called. The rest of the code are all
-     *  assignment statements which run in O(1) time, so the run time for this method is O(N) because O(1) + O(N) x O(1)
-     *  is O(N) when simplified.
      *
      */
     public DLLNode getNode(int pos){
@@ -137,12 +123,6 @@ class DoublyLinkedList<T extends Comparable<T>>
      *      element at the end of the list.
      * @param data : The new data of class T that needs to be added to the list
      * @return none
-     *
-     * Worst-case asymptotic running time cost: O(N)
-     *
-     * Justification:
-     *  the first three if statements all run in constant time, so we can ignore those for the calculation. The method
-     *  getNode runs in O(N) time, so this method will run in O(N) time because O(1) + O(N) simplifies to O(N).
      */
     public void insertBefore( int pos, T data )
     {
@@ -184,12 +164,6 @@ class DoublyLinkedList<T extends Comparable<T>>
      * @param pos : the position
      * @return the data at pos, if pos is within the bounds of the list, and null otherwise.
      *
-     * Worst-case asymptotic running time cost: O(N)
-     *
-     * Justification:
-     *  getNode runs in O(N) time, so this method will also run in O(N) time. All other code run in O(1) time and O(1)
-     *  + O(N) simplifies to O(N).
-     *
      */
     public T get(int pos)
     {
@@ -207,13 +181,6 @@ class DoublyLinkedList<T extends Comparable<T>>
      * elements of the list then no modification happens to the list.
      * @param pos : the position to delete in the list.
      * @return true : on successful deletion, false : list has not been modified.
-     *
-     * Worst-case asymptotic running time cost: O(N)
-     *
-     * Justification:
-     * The first 4 if statements all run in constant time, because all the code in them are just assignment statements.
-     * the final else statement that deals with nodes that are not the head or tail, runs in O(N) time. This is because
-     * getNode() runs in O(N) time. The rest if the else statement is just assignment statements, so O(1) + O(N) is O(N)
      */
     public boolean deleteAt(int pos)
     {
@@ -259,13 +226,6 @@ class DoublyLinkedList<T extends Comparable<T>>
      * Reverses the list.
      * If the list contains "A", "B", "C", "D" before the method is called
      * Then it should contain "D", "C", "B", "A" after it returns.
-     *
-     * Worst-case asymptotic running time cost: O(N)
-     *
-     * Justification:
-     * The while loop runs N times. This is because after the head, it has to reassign each element of the list to be
-     * before the one behind it. All other code in the method is an assignment so to calculate the run time you get:
-     * O1 + O(N) x O(1), which is just O(N).
      */
     public void reverse()
     {
@@ -292,14 +252,6 @@ class DoublyLinkedList<T extends Comparable<T>>
      * If the list contains "A", "B", "C", "B", "D", "A" before the method is called
      * Then it should contain "A", "B", "C", "D" after it returns.
      * The relative order of elements in the resulting list should be the same as the starting list.
-     *
-     * Worst-case asymptotic running time cost: O(N^3)
-     *
-     * Justification:
-     * The first while loop will start at the head and iterate throughout the rest of the list. So it runs in O(N) time.
-     * The second while loop will also iterate throughout the whole list. So it runs in O(N) time as well. The method
-     * call to deleteAt() will run in O(N) time. The rest of the code includes assignment statements, so when calculating
-     * this we get: O(1) + O(N) ( O1 + O(N) ( O1 + O(N)) ) which can be simplified to O(N) x O(N) x O(N) which is O(N^3).
      */
     public void makeUnique()
     {
@@ -349,11 +301,6 @@ class DoublyLinkedList<T extends Comparable<T>>
      * This method adds an element to the data structure.
      * How exactly this will be represented in the Doubly Linked List is up to the programmer.
      * @param item : the item to push on the stack
-     *
-     * Worst-case asymptotic running time cost: O(1)
-     *
-     * Justification:
-     * This method is only assignment statements.
      */
     public void push(T item)
     {
@@ -367,11 +314,6 @@ class DoublyLinkedList<T extends Comparable<T>>
     /**
      * This method returns and removes the element that was most recently added by the push method.
      * @return the last item inserted with a push; or null when the list is empty.
-     *
-     * Worst-case asymptotic running time cost: O(1)
-     *
-     * Justification:
-     * This method is only assignment statements.
      */
     public T pop()
     {
@@ -392,11 +334,6 @@ class DoublyLinkedList<T extends Comparable<T>>
      * This method adds an element to the data structure.
      * How exactly this will be represented in the Doubly Linked List is up to the programmer.
      * @param item : the item to be enqueued to the stack
-     *
-     * Worst-case asymptotic running time cost: O(1)
-     *
-     * Justification:
-     * This method is only assignment statements.
      */
     public void enqueue(T item)
     {
@@ -423,11 +360,6 @@ class DoublyLinkedList<T extends Comparable<T>>
     /**
      * This method returns and removes the element that was least recently added by the enqueue method.
      * @return the earliest item inserted with an enqueue; or null when the list is empty.
-     *
-     * Worst-case asymptotic running time cost: O(1)
-     *
-     * Justification:
-     * This method is only assignment statements.
      */
     public T dequeue()
     {
@@ -444,15 +376,6 @@ class DoublyLinkedList<T extends Comparable<T>>
     /**
      * @return a string with the elements of the list as a comma-separated
      * list, from beginning to end
-     *
-     * Worst-case asymptotic running time cost:   Theta(n)
-     *
-     * Justification:
-     *  We know from the Java documentation that StringBuilder's append() method runs in Theta(1) asymptotic time.
-     *  We assume all other method calls here (e.g., the iterator methods above, and the toString method) will execute in Theta(1) time.
-     *  Thus, every one iteration of the for-loop will have cost Theta(1).
-     *  Suppose the doubly-linked list has 'n' elements.
-     *  The for-loop will always iterate over all n elements of the list, and therefore the total cost of this method will be n*Theta(1) = Theta(n).
      */
     public String toString()
     {
